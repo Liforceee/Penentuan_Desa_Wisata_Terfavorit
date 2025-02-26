@@ -19,74 +19,93 @@
 
 @section('main')
 
- <!-- Featured Services Section -->
- <section id="featured-services" class="featured-services section">
+<!-- About Section -->
+<section id="about" class="about section light-background">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Tentang</h2>
+      <p><span>Pelajari Lebih Lanjut</span> <span class="description-title">Tentang Sistem Kami</span></p>
+    </div><!-- End Section Title -->
+
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="section-heading mb-5">
-                    <h2>Keindahan Desa Wisata</h2>
-                    <p>
-                        Temukan potensi wisata di Gunung Kidul melalui eksplorasi kriteria seperti keindahan alam,
-                        tradisi budaya, dan fasilitas pendukung.
-                    </p>
-                </div>
-            </div>
+      <div class="row gy-3">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <img src="{{asset ('user/assets/img/home/1.jpg') }}" alt="Tentang Sistem" class="img-fluid">
         </div>
-        <div class="row gy-4">
-            <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-item position-relative">
-                    <div class="icon"><img src="user/assets/img/home/.jpeg" alt="Keindahan Alam"></div>
-                    <h4><a href="" class="stretched-link">Keindahan Alam</a></h4>
-                    <p>Panorama alam yang memukau menjadi daya tarik utama wisata di wilayah ini.</p>
-                </div>
-            </div><!-- End Service Item -->
 
-            <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-item position-relative">
-                    <div class="icon"><img src="path/to/image2.jpg" alt="Tradisi Budaya"></div>
-                    <h4><a href="" class="stretched-link">Tradisi Budaya</a></h4>
-                    <p>Budaya lokal yang unik memberikan pengalaman yang tak terlupakan bagi pengunjung.</p>
+        <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="about-content ps-0 ps-lg-3">
+            <h3>Sistem Penentuan Desa Wisata Terfavorit dengan Metode MAUT</h3>
+            <p class="fst-italic">
+              Sistem ini membantu menentukan desa wisata terbaik di Gunung Kidul berdasarkan beberapa kriteria yang telah ditentukan.
+            </p>
+            <ul>
+              <li>
+                <i class="bi bi-diagram-3"></i>
+                <div>
+                  <h4>Metode Multi-Attribute Utility Theory (MAUT)</h4>
+                  <p>Metode MAUT digunakan untuk memberikan peringkat pada desa wisata berdasarkan berbagai kriteria yang relevan.</p>
                 </div>
-            </div><!-- End Service Item -->
+              </li>
+              <li>
+                <i class="bi bi-fullscreen-exit"></i>
+                <div>
+                  <h4>Kriteria Penilaian</h4>
+                  <p>Sistem mempertimbangkan kebersihan, keamanan, akses jalan, jarak tempuh, fasilitas, dan biaya tiket dalam menentukan desa wisata terbaik.</p>
+                </div>
+              </li>
+            </ul>
+            <p>
+              Dengan sistem ini, wisatawan dapat dengan mudah memilih desa wisata terbaik sesuai dengan preferensi mereka, dan pemerintah daerah dapat menggunakan data ini untuk pengembangan pariwisata yang lebih baik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- /About Section -->
 
-            <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-item position-relative">
-                    <div class="icon"><img src="path/to/image3.jpg" alt="Fasilitas Pendukung"></div>
-                    <h4><a href="" class="stretched-link">Fasilitas Pendukung</a></h4>
-                    <p>Fasilitas wisata yang memadai memberikan kenyamanan ekstra bagi wisatawan.</p>
-                </div>
-            </div><!-- End Service Item -->
+<!-- Section Desa Wisata -->
+<section id="desa-wisata" class="about section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Desa Wisata</h2>
+        <p><span>Daftar Destinasi</span> <span class="description-title">Wisata</span></p>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div id="desaWisataCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @foreach ($desaWisata->chunk(3) as $key => $chunk) <!-- Tampilkan 3 gambar per slide -->
+                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                        <div class="row">
+                            @foreach ($chunk as $desa)
+                                <div class="col-md-4">
+                                    <img src="{{ $desa->gambar ? asset('storage/' . $desa->gambar) : 'path/to/default-image.jpg' }}"
+                                         class="d-block w-100 img-fluid rounded shadow-sm"
+                                         alt="Gambar Desa Wisata">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <!-- Tombol Prev & Next -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#desaWisataCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#desaWisataCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 </section>
 
-
-
-<!-- Home Section -->
-{{-- <div id="home" class="welcome-area" style="padding-top: 120px; padding-bottom: 80px;">
-    <div class="header-text">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Left Content -->
-                <div class="col-lg-6">
-                    <h1 class="mb-4">Penentuan <strong>Desa Wisata</strong> Terfavorit</h1>
-                    <p class="mb-4">
-                        Website ini membantu Anda menjelajahi dan menilai keindahan desa wisata di Gunung Kidul
-                        menggunakan pendekatan yang objektif dan inovatif.
-                    </p>
-                    <a href="#explore" class="btn btn-primary btn-lg main-button-gradient">Jelajahi Sekarang</a>
-                </div>
-                <!-- Right Image -->
-                <div class="col-lg-6 text-center">
-                    <img src="{{ asset('user/assets/images/wonderfull.png') }}" alt="Gunung Kidul" class="img-fluid rounded">
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-<!-- Call to Action Section -->
+{{-- <!-- Call to Action Section -->
 <section id="cta" class="cta py-5 bg-light">
     <div class="container">
         <div class="row align-items-center">
@@ -104,6 +123,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 @endsection
