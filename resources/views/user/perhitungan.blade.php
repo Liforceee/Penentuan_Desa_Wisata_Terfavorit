@@ -4,77 +4,12 @@
 <section id="desa-wisata" class="team section light-background">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <p><span>Perhitungan&nbsp;</span> <span class="description-title">MAUT</span></p>
-        <p>Penentuan Desa Wisata Terfavorit</p>
+        <p><span>Perhitungan&nbsp;</span><span class="description-title">MAUT</span></p>
+        <p style="font-size: 14px; font-weight: normal; color: #666;">Penentuan Desa Wisata Terfavorit</p>
     </div><!-- End Section Title -->
-
-
-    <!-- Data Awal -->
-    <div class="container">
-        <h3 class="text-center">Data Awal</h3>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Desa</th>
-                        <th>Kebersihan</th>
-                        <th>Keamanan</th>
-                        <th>Akses Jalan</th>
-                        <th>Jarak Tempuh</th>
-                        <th>Fasilitas</th>
-                        <th>Biaya Tiket</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($data_awal as $data)
-                    <tr>
-                        <td>{{ $data['desa'] }}</td>
-                        <td>{{ $data['kebersihan'] }}</td>
-                        <td>{{ $data['keamanan'] }}</td>
-                        <td>{{ $data['akses_jalan'] }}</td>
-                        <td>{{ $data['jarak_tempuh'] }}</td>
-                        <td>{{ $data['fasilitas'] }}</td>
-                        <td>{{ $data['biaya_tiket'] }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- Hasil MAUT -->
-    <div class="container mt-5">
-        <h3 class="text-center">Hasil Rekomendasi Desa Wisata Terfavorit</h3>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Desa</th>
-                        <th>Nilai Rekomendasi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($hasil_maut as $hasil)
-                    <tr>
-                        <td>{{ $hasil['desa'] }}</td>
-                        <td>{{ number_format($hasil['nilai'], 5) }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- Grafik Hasil MAUT -->
-    <div class="container mt-5 text-center">
-        <h3>Grafik Rekomendasi Desa Wisata</h3>
-        <canvas id="mautChart" width="400" height="200"></canvas>
-    </div>
-
-
-   {{-- Input Data User --}}
-    <div class="container mt-5">
-        <h3 class="text-center mb-4">Masukkan Data Anda</h3>
+    {{-- Input Data User --}}
+    <div class="container mt-1">
+        <h3 class="text-center mt-1">Masukkan Data Anda</h3>
         <form id="userInputForm" action="{{ route('maut.hitung') }}" method="POST">
             @csrf
             <div class="mb-3">
@@ -136,8 +71,8 @@
             <div class="mb-3">
                 <label for="fasilitas" class="form-label">Fasilitas:</label>
                 <select name="fasilitas" id="fasilitas" class="form-select">
-                    <option value="1" {{ old('fasilitas') == 1 ? 'selected' : '' }}>Minim</option>
-                    <option value="3" {{ old('fasilitas') == 3 ? 'selected' : '' }}>Cukup</option>
+                    <option value="1" {{ old('fasilitas') == 1 ? 'selected' : '' }}>Kurang Lengkap</option>
+                    <option value="3" {{ old('fasilitas') == 3 ? 'selected' : '' }}>Cukup Lengkap</option>
                     <option value="5" {{ old('fasilitas') == 5 ? 'selected' : '' }}>Lengkap</option>
                 </select>
                 @error('fasilitas')
@@ -149,7 +84,7 @@
                 <label for="biaya_tiket" class="form-label">Biaya Tiket:</label>
                 <select name="biaya_tiket" id="biaya_tiket" class="form-select">
                     <option value="5" {{ old('biaya_tiket') == 5 ? 'selected' : '' }}>Mahal</option>
-                    <option value="3" {{ old('biaya_tiket') == 3 ? 'selected' : '' }}>Sedang</option>
+                    <option value="3" {{ old('biaya_tiket') == 3 ? 'selected' : '' }}>Cukup Mahal</option>
                     <option value="1" {{ old('biaya_tiket') == 1 ? 'selected' : '' }}>Murah</option>
                 </select>
                 @error('biaya_tiket')
@@ -161,6 +96,68 @@
                 <button type="submit" class="btn btn-primary">Tambahkan</button>
             </div>
         </form>
+    </div>
+
+    <!-- Data Awal -->
+    <div class="container mt-5">
+        <h3 class="text-center">Data Awal</h3>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Desa</th>
+                        <th>Kebersihan</th>
+                        <th>Keamanan</th>
+                        <th>Akses Jalan</th>
+                        <th>Jarak Tempuh</th>
+                        <th>Fasilitas</th>
+                        <th>Biaya Tiket</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($data_awal as $data)
+                    <tr>
+                        <td>{{ $data['desa'] }}</td>
+                        <td>{{ $data['kebersihan'] }}</td>
+                        <td>{{ $data['keamanan'] }}</td>
+                        <td>{{ $data['akses_jalan'] }}</td>
+                        <td>{{ $data['jarak_tempuh'] }}</td>
+                        <td>{{ $data['fasilitas'] }}</td>
+                        <td>{{ $data['biaya_tiket'] }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Hasil MAUT -->
+    <div class="container mt-5">
+        <h3 class="text-center">Hasil Rekomendasi Desa Wisata Terfavorit</h3>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Desa</th>
+                        <th>Nilai Rekomendasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($hasil_maut as $hasil)
+                    <tr>
+                        <td>{{ $hasil['desa'] }}</td>
+                        <td>{{ number_format($hasil['nilai'], 5) }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Grafik Hasil MAUT -->
+    <div class="container mt-5 text-center">
+        <h3>Grafik Rekomendasi Desa Wisata</h3>
+        <canvas id="mautChart" width="900" height="200"></canvas>
     </div>
 
 </section>

@@ -33,10 +33,10 @@ Route::get('/petunjuk', function () {
 Route::get('/pengembang', function () {
     return view('user.pengembang');
 });
-
-Route::get('/maut', [MautController::class, 'index'])->name('maut.index');
-Route::post('/maut/hitung', [MautController::class, 'hitung'])->name('maut.hitung');
-
+Route::middleware(['auth', 'can:user'])->group(function (){
+    Route::get('/maut', [MautController::class, 'index'])->name('maut.index');
+    Route::post('/maut/hitung', [MautController::class, 'hitung'])->name('maut.hitung');
+});
 Route::get('/desa-wisata', [DesaController::class, 'indexUser'])->name('desa_wisata.user');
 
 

@@ -8,7 +8,7 @@
           <h1>Welcome to <span>GoKid</span></h1>
           <p>Penentuan Desa Wisata Terfavorit</p>
           <div class="d-flex">
-            <a href="#about" class="btn-get-started">Hitung</a>
+            <a href="/maut" class="btn-get-started">Hitung</a>
           </div>
         </div>
       </div>
@@ -24,8 +24,8 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <h2>Tentang</h2>
-      <p><span>Pelajari Lebih Lanjut</span> <span class="description-title">Tentang Sistem Kami</span></p>
+      <h2>About</h2>
+      <p><span>Tentang</span> <span class="description-title">Kami</span></p>
     </div><!-- End Section Title -->
 
     <div class="container">

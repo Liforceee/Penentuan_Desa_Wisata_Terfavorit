@@ -69,13 +69,16 @@
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="/" class="active">Home</a></li>
-            <li><a href="/desa-wisata">Desa Wisata</a></li>
-            <li><a href="/maut">Penentuan</a></li>
-            <li><a href="/petunjuk">Petunjuk</a></li>
-            <li><a href="/pengembang">Pengembang</a></li>
+            <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
+            <li><a href="/desa-wisata" class="{{ request()->is('desa-wisata') ? 'active' : '' }}">Desa Wisata</a></li>
+            <li><a href="/maut" class="{{ request()->is('maut') ? 'active' : '' }}">Penentuan</a></li>
+            <li><a href="/petunjuk" class="{{ request()->is('petunjuk') ? 'active' : '' }}">Petunjuk</a></li>
+            <li><a href="/pengembang" class="{{ request()->is('pengembang') ? 'active' : '' }}">Pengembang</a></li>
+
             @guest
-            <li><a href="/login"><i class="bi bi-box-arrow-in-right"></i>Login</a></li>
+                <li><a href="/login" class="{{ request()->is('login') ? 'active' : '' }}">
+                    <i class="bi bi-box-arrow-in-right"></i> Login
+                </a></li>
             @else
             <!-- Tampilkan ini jika user sudah login -->
             @can('admin')
@@ -129,23 +132,19 @@
             <div class="col-lg-3 col-md-3 footer-links">
               <h4>Useful Links</h4>
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Desa Wisata</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Penentuan</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Petunjuk</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Pengembang</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="/">Home</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="/desa-wisata">Desa Wisata</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="/maut">Penentuan</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="/petunjuk">Petunjuk</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="/pengembang">Pengembang</a></li>
               </ul>
             </div>
 
             <div class="col-lg-4 col-md-3 footer-links">
-              <h4>Our Services</h4>
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-              </ul>
+                <h4>Lokasi</h4>
+                <p><i class="bi bi-geo-alt"></i> Gunung Kidul, Yogyakarta</p>
             </div>
+
           </div>
         </div>
 

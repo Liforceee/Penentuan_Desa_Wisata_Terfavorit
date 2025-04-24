@@ -1970,3 +1970,28 @@ section,
 .starter-section {
     /* Add your styles here */
 }
+
+.fixed-image {
+    width: 100%;
+    height: 200px;
+    /* Sesuaikan tinggi gambar */
+    object-fit: cover;
+    /* Agar gambar tidak terdistorsi */
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+/* CSS untuk menyamakan tinggi card */
+.equal-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Membuat card memiliki tinggi yang sama */
+}
+
+.equal-height p {
+    flex-grow: 1;
+    /* Membuat teks memenuhi ruang */
+}
