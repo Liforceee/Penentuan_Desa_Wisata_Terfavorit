@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - BizLand Bootstrap Template</title>
+  <title>GoKid - Penentuan Desa Wisata Terfavorit</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{{asset ('user/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{asset ('user/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{asset ('user/assets/img/gokid.png') }}" rel="icon">
+  <link href="{{asset ('user/assets/img/gokid.png') }}" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -61,7 +61,7 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="/" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="{{asset ('user/assets/img/logo.png') }}" alt=""> -->
           <h1 class="sitename">GoKid</h1>

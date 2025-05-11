@@ -5,7 +5,7 @@
     <section id="desa-wisata" class="team section light-background">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <p><span>Desa&nbsp;</span> <span class="description-title">Wisata</span></p>
+            <p><span>Desa&nbsp;</span><span class="description-title">Wisata</span></p>
         </div><!-- End Section Title -->
 
         <div class="container">

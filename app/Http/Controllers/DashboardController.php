@@ -89,7 +89,7 @@ class DashboardController extends Controller
         // 8. Ambil Desa Wisata dengan Nilai Tertinggi
         $wisataTerfavorit = !empty($hasilMaut) ? $hasilMaut[0]['desa'] : 'Tidak ada';
 
-        return view('admin.dashboard.index', compact('jumlahDesaWisata', 'jumlahUser', 'wisataTerfavorit'));
+        return view('admin.dashboard.index', compact('jumlahDesaWisata', 'jumlahUser', 'wisataTerfavorit', 'hasilMaut'));
     }
 
 }
